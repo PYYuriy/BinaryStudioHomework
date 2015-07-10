@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pavlyo Yuriy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Lecture 7.css">
+	<script src="jquary/jquery-1.11.3.min.js" ></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var touch = $('#touch-menu');
+				var menu = $('.nav');
+				$(touch).on('click', function(e) {
+						e.preventDefault();
+						menu.slideToggle();
+				});
+				$(window).resize(function(){
+						var wid = $(window).width();
+						if(wid > 800 && menu.is(':hidden')) {
+								menu.removeAttr('style');
+						}
+				});
+
+				$('.icon-menu').click(function(e) {
+				var aside = $('aside');
+				var asideWidth = $('aside').width();
+				$('header, .content, footer').addClass('active');
+
+				if (aside.css('left') != asideWidth) {
+					aside.addClass('active');
+
+					var firstClick = true;
+
+					$(document).bind('click.myEvent', function(e) {
+						if (!firstClick && $(e.target).closest('aside').length == 0) {
+							aside.removeClass('active');
+							$('header, .content, footer').removeClass('active');
+							$(document).unbind('click.myEvent');
+						}
+						firstClick = false;
+					});
+				}
+				e.preventDefault();
+			});
+		});
+	</script>
+		<!--[if lt IE 9]>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<div class="wrapper">
+	<header class="container clearfix">
+			<div class="icon-menu">
+				<span class="divide"></span>
+				<span class="divide"></span>
+				<span class="divide"></span>
+			</div>
+		<div class="logo">
+		</div>
+		<a href="#" id="touch-menu">Меню</a>
+		<nav>
+			<ul class="nav clearfix">
+				<li><a href="#">Текст_1</a></li>
+				<li><a href="#">Текст_2</a></li>
+				<li><a href="#">Текст_3</a></li>
+				<li><a href="#">Текст_4</a></li>
+				<li><a href="#">Текст_5</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="container clearfix">
+		<div class="content">
+			<img class="img-left" src="imgs/min.png" height="256" width="256">
+
+			<p>Web browsers can read HTML files and render them into visible or audible web pages. Browsers do not display the HTML tags and scripts, but use them to interpret the content of the page. HTML describes the structure of a website semantically along with cues for presentation, making it a markup language, rather than a programming language.Web browsers can read HTML files and render them into visible or audible web pages. Browsers do not display the HTML tags and scripts, but use them to interpret the content of the page. HTML describes the structure of a website semantically along with cues for presentation, making it a markup language, rather than a programming language.Web browsers can read HTML files and render them into visible or audible web pages. Browsers do not display the HTML tags and scripts, but use them to interpret the content of the page. HTML describes the structure of a website semantically along with cues for presentation, making it a markup language, rather than a programming language.</p>
+
+			<img src="imgs/single.jpg" height="600" width="800">
+
+			<p>HTML elements form the building blocks of all websites. HTML allows images and objects to be embedded and can be used to create interactive forms. It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. It can embed scripts written in languages such as JavaScript which affect the behavior of HTML web pages.</p>
+
+			<img class="doble-img" src="imgs/doble.jpg" height="526" width="700">
+			<img class="doble-img" src="imgs/doble.jpg" height="526" width="700">
+
+			<p>Web browsers can also refer to Cascading Style Sheets (CSS) to define the look and layout of text and other material. The World Wide Web Consortium (W3C), maintainer of both the HTML and the CSS standards, has encouraged the use of CSS over explicit presentational HTML since 1997.</p>
+
+		</div>
+		<aside>
+			<div class="scroll">
+				<ul class="side-block">
+					<li><a href="#">Web browsers can also refer</a></li>
+					<li><a href="#">Web browsers can also refer</a></li>
+					<li><a href="#">Web browsers can also refer</a></li>
+					<li><a href="#">Web browsers can also refer</a></li>
+				</ul>
+				<ul class="side-block">
+					<li><a href="#">HTML elements form the building</a></li>
+					<li><a href="#">HTML elements form the building</a></li>
+					<li><a href="#">HTML elements form the building</a></li>
+					<li><a href="#">HTML elements form the building</a></li>
+				</ul>
+				<ul class="side-block">
+					<li><a href="#">Web browsers can also refer</a></li>
+					<li><a href="#">Web browsers can also refer</a></li>
+					<li><a href="#">Web browsers can also refer</a></li>
+					<li><a href="#">Web browsers can also refer</a></li>
+				</ul>
+				<ul class="side-block">
+					<li><a href="#">HTML elements form the building</a></li>
+					<li><a href="#">HTML elements form the building</a></li>
+					<li><a href="#">HTML elements form the building</a></li>
+					<li><a href="#">HTML elements form the building</a></li>
+				</ul>
+
+			</div>
+		</aside>
+	</div>
+	<footer>
+
+		<div class="row">
+			<div class="col-3">Опять же, мы используем символ регулярного выражения "
+			 Are you ready to change your life with Cisco Networking Academy</div>
+			<div class="col-3">Опять же, мы используем символ регулярного выражения " Are you ready to change your life with Cisco Networking Academy?</div>
+			<div class="col-3">Опять же, мы используем символ регулярного выражения "
+			 Are you ready to change your life with Cisco Networking Academy</div>
+		</div>
+
+		<div class="row">
+			<div>Learning institutions and individuals worldwide.</div>
+			</div>
+
+	</footer>
+</div>
+</body>
+</html>
