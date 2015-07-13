@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>Pavlyo Yuriy</title>
+	<link rel="stylesheet" type="text/css" href="Lecture 9.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-resource.js"></script>
+</head>
+<body>
+<div  ng-app="myApp" ng-controller="customersCtrl as Picture" ng-cloak> 
+<div id="container">
+	<div ng-repeat="x in Picture.list">
+		<h3>Title: {{x.title}}</h3>
+
+		 <img clickme ng-src="{{x.thumbnailUrl}}"> 
+	</div>
+	</div>
+	
+	<div hideme id='wrapper'></div>
+</div>
+
+	</body>
+	<script src="Lecture 9.js"></script>
+	<script src="dataResourceFhoto.js"></script>
+	<script src="dataHttPhoto.js"></script>
+	<script src="directive.js"></script>
+</html>

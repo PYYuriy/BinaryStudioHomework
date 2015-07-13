@@ -1,0 +1,52 @@
+*{
+	padding: 0;
+	margin-right: 0;
+}
+body{
+	background: url(http://www.graphicmeasures.com/wp-content/gallery/cool-backgrounds/23.jpg) fixed;
+
+	background-position: center;
+	background-size: cover;
+	color:#66CA35;
+	font-family: 'Alexander', Verdana,sans-serif;
+	margin:auto;
+}
+#container{
+	width: 800px;
+	background: rgba(64, 0, 64, .5);
+	border:1px solid #400040;
+	border-radius: 10px;
+	margin:10px auto;
+}
+#container  div {
+	width: 90%;
+	background: #008040;
+	margin:10px auto;
+	padding: 10px;
+	text-align: center;
+}
+img{
+	width: 80px;
+	height:80px;
+}
+#wrapper{
+	width:98%;
+	height:96%;
+	background: rgba(100,100,100,0.6);
+	position:absolute;
+	position: fixed;
+	top:0;
+	left:0;
+	margin: 1%;
+	display:none;
+	text-align: center;
+
+}
+#wrapper img {
+	width: 400px;
+	height: 400px;
+	margin-top: 10%;
+	position: relative;
+	border: 1px solid red;
+}
+
