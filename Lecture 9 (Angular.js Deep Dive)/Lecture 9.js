@@ -43,3 +43,25 @@ function customersCtrl(dataResourceFhoto){
 		}
 		getPhoto();
 }
+
+// я не впевнений чи той чи цей метод правильніший
+//*** 2-й спосіб ***
+/*.controller('customersCtrl', ['demoFac',
+  function(demoFac) {
+    var Picture = this;
+
+    Picture.list = [];
+
+    demoFac.fetchUserDetails().then(function(response) {
+      for (var i = 0; i < response.length; i++) {
+        Picture.list.push({
+          title: response[i].data.title,
+          thumbnailUrl: response[i].data.thumbnailUrl
+        });
+      }
+    });
+
+    console.log(Picture.list);
+  }
+]);*/
+
