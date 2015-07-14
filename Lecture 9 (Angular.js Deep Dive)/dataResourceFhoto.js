@@ -5,14 +5,18 @@
 	.factory("dataResourceFhoto",dataResourceFhoto);
 	function dataResourceFhoto ($resource){
 		var urlBase = 'http://jsonplaceholder.typicode.com/photos/:id';
-
 		dataResourceFhoto.getPhoto = function () {
-				return $resource(
-				urlBase,
-				{id: "@id"},
-				{
-						 "reviews": {'method': 'GET', 'params': {'reviews_only': "true"}, isArray: true}
-				});
+				return $resource(urlBase, {id: "@id"}, {
+					'query':{
+						method:'GET',
+						isArray:true, 
+						interceptor : {
+										responseError : function (error) {
+														return console.log('Unable to load customer data: ' + error);
+										}
+						}
+					}
+			})
 		};
 	return dataResourceFhoto;
 }
