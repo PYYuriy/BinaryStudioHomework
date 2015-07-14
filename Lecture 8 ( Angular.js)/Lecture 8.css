@@ -1,0 +1,33 @@
+#personInformation,#goodsList{
+	background: #B7FFFF;
+	border: 1px solid #400040;
+	width: 48%;
+	padding: 10px;
+	float: left;
+	min-width: 400px;
+	min-height: 600px;
+
+}
+.done-true {
+  text-decoration: line-through;
+  color: #888;
+}
+table,td{
+	border:1px solid #004080;
+	border-collapse: collapse;
+}
+td{
+	padding: 5px;
+	background: #BBBBFF;
+}
+table{
+	margin: 10px;
+}
+input{
+	margin-bottom: 10px;
+}
+img{
+	width: 60px;
+	height:60px;
+	display: block;
+}

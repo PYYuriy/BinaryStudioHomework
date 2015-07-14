@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>Pavlyo Yuriy</title>
+	<link rel="stylesheet" type="text/css" href="Lecture 8.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript" src="Lecture 8.js"></script>
+</head>
+<body ng-app='personApp'>
+
+				<div id="personInformation" ng-controller="personListController as personList">
+				<button ng-click="personList.toggle()">togglePerson</button>
+				<div ng-hide="personList.hide">
+						<h2>Person</h2>
+						<label>Search: <input type="text" ng-model="search.text"></label>
+						<form ng-submit="personList.addPerson()">
+
+								<input type="text" ng-model="personList.personName"  size="30"
+														 placeholder="Add new Name">
+								<input type="text" ng-model="personList.personCity"  size="10"
+														 placeholder="City">
+								<input type="text" ng-model="personList.personImage"  size="20"
+														 placeholder="Enter url for image">
+								<input class="btn-primary" type="submit" value="add">
+						</form>
+
+						<table class="unstyled">
+								<tr><td>Status</td>
+												<td>Name</td>
+												<td>City</td>
+												<td>Age</td>
+												<td>Picture</td>
+								</tr>
+								<tr ng-repeat="todo in personList.list | filter: search">
+										<td><input type="checkbox" ng-model="todo.done"></td>
+										<td class="done-{{todo.done}}">{{"Пользователь: "+ (todo.text | uppercase) }}</td>
+										<td class="done-{{todo.done}}">{{todo.city}}</td>
+										<td class="done-{{todo.done}}">{{todo.age}}</td>
+										<td><img ng-src="{{todo.image}}"></td>
+								</tr>
+						</table>
+						<input type="button" ng-click="personList.archive()" value="Delete"/><br/>
+						<span>Lenngth: {{(personList.list | filter: search).length}}.</span><br/>
+						<span>Remaining: {{personList.remaining()}} of {{personList.list.length}}. </span>
+						</div>
+				</div>
+
+
+
+
+				<div id="goodsList" ng-controller="goodsController as goodsList">
+				<button ng-click="goodsList.toggle()">toggleGoods</button>
+				<div ng-hide="goodsList.hide">
+						<h2>Goods</h2>
+						<label>Search: <input type="text" ng-model="search.$"></label>
+						<form ng-submit="goodsList.addGood()">
+
+								<input type="text" ng-model="goodsList.goodName"  size="30"
+														 placeholder="Add new Name">
+
+								<input class="btn-primary" type="submit" value="add">
+						</form>
+												<table class="unstyled">
+								<tr><td>Status</td>
+												<td>Name</td>
+												<td>Price</td>
+								</tr>
+								<tr ng-repeat="todo in goodsList.list | filter: search">
+										<td><input type="checkbox" ng-model="todo.done"></td>
+										<td class="done-{{todo.done}}">{{todo.name}}</td>
+										<td class="done-{{todo.done}}">{{todo.price}}</td>
+								</tr>
+						</table>
+						<input type="button" ng-click="goodsList.archive()" value="Delete"/><br/>
+						<span>Lenngth:{{(goodsList.list | filter: search).length}}</span><br/>
+						<span>Remaining: {{goodsList.remaining()}} of {{goodsList.list.length}}.</span>
+						</div>
+				</div>
+		</body>
+
+</html>
