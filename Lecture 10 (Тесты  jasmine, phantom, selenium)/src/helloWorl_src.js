@@ -10,8 +10,7 @@ Man.prototype.live = function(){
 }
 
 function Student(name, age){
-	this.base = Man;
-	this.base(name, age);
+ Man.apply(this, arguments);
 }
 Student.prototype = new Man;
 Student.prototype.study = function(){
