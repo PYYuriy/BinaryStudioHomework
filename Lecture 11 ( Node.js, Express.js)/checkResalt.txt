@@ -1,0 +1,55 @@
+Приеклад GET: /api/countries
+---результат
+{
+  "data": [
+    {
+      "name": "Afghanistan",
+      "description": "Purus vulputate ...."
+    },...
+    ]}
+ Приеклад POST (я передавав через: body > raw, jJSON): /api/countries
+{
+	"name": "NEW2 NAME",
+        "description": "NEW2 Commodo ."
+    }
+-----------------------------------------------------------------------------------------
+Приеклад GET: /api/countries/Algeria/hotels
+
+---результат
+{
+  "data": [
+    {
+    
+	 "id": 29,
+     
+	 "name": "Aliquam a....."
+    },...
+
+    ]}
+Приеклад POST (я передавав через: body > raw, jJSON): /api/countries/Algeria/hotels 
+{
+			"name": "NEW NAME",
+      "country": "NEW COUNTRY",
+      "description": "NEW Commodo ."
+    }
+------------------------------------------------------------------------------------------
+Приеклад GET:/api/hotels/79
+
+---результат
+{
+  "data": {
+    "id": 78,
+    "name": "Tincidunt",
+    "country": "Antarctica",
+    "description": "Adipiscing..."
+  },
+  "status": "geted"
+}
+
+Приклад PUT (я передавав через: body > raw, jJSON): /api/hotels/78
+{
+	"name": "NEW PUT NAME",
+        "description": "NEW PUT Commodo ."
+    }
+///Приклад DELETE:/api/hotels/99
+*/
