@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Chat</title>
+<style type="text/css">
+		body{
+			background: url(http://www.graphicmeasures.com/wp-content/gallery/cool-backgrounds/23.jpg) fixed;
+			background-position: center;
+			background-size: cover;
+			font-family: 'Alexander', Verdana,sans-serif;
+			margin:auto;
+		}
+		button{
+			border-radius: 10px;
+			color:#FFFF00;
+			margin:0 10px;
+			padding: 5px 10px;
+		background: -webkit-linear-gradient(#6F6FFB 0%, #011FA9 100%);
+		background: -o-linear-gradient(#6F6FFB 0%, #011FA9 100%);
+		background: linear-gradient(#6F6FFB 0%, #011FA9 100%);
+			border:none;
+		}
+		button:hover{
+				background: #3148B9;
+				opacity: 0.7;
+			}
+		textarea{
+			resize: none;
+			display: block;
+			margin:20px 0;
+			border-radius:8px;
+			width:70%;
+			height:100px;
+		}
+		#form{
+			margin:30px;
+			width: 80%;
+		}
+		#messages{
+			list-style-type: none;
+			border: 1px solid #00FF00;
+			margin:20px;
+			min-height:200px;
+			max-height:300px;
+			overflow-y:auto;
+		}
+		#container{
+			width: 800px;
+			background: rgba(64, 0, 64, .5);
+			border:1px solid #400040;
+			border-radius: 10px;
+			margin:7% auto;
+		}
+		#name{
+			display: block;
+			padding:5px;
+			border-radius:5px;
+			width: 200px;
+		}
+		ul>li{
+			padding:4px;
+			margin:5px 0;
+			width:80%;
+			word-break: break-all;
+		}
+		ul>li{
+			background:#939393;
+		}
+		ul>li:nth-child(odd){
+			background:#C0C0C0;
+		}
+</style>
+</head>
+<body>
+<div id="container">
+<div id='form'>
+<input type="text" placeholder="Your Name" id="name">
+<textarea id="text"></textarea>
+<button id="sendbutton">Send</button>
+</div>
+<ul id="messages"></ul>
+</div>
+</body>
+<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+<script type="text/javascript">
+	(function(){		var nameInput = document.getElementById("name"),
+				textInput = document.getElementById("text"),
+				sendButton = document.getElementById("sendbutton"),
+				messages = document.getElementById("messages");
+
+		var socket = io.connect();
+
+		sendButton.onclick = function(){
+			if(textInput.value.replace(/\s+/g, '') !== ""){
+
+				var infoObj = {
+					name : nameInput.value || "Unknown",
+					text : textInput.value
+				};
+
+				socket.emit("chat message", infoObj);
+			}
+			textInput.value = "";
+		};
+
+		socket.on("chat history", function(msg){
+			for(var i in msg){
+				if(msg.hasOwnProperty(i)){
+					var el = document.createElement("li");
+					el.innerHTML = "<b>" + msg[i].name + "</b>: " + msg[i].text;
+					messages.appendChild(el);  
+				}
+			}
+		});
+
+		socket.on("chat message", function(msg){
+			var el = document.createElement("li");
+			el.innerHTML = "<b>" + msg.name + "</b>: " + msg.text;
+			messages.appendChild(el);
+		});
+
+	})();
+</script>
+</html>
